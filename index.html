@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-icons-outlined">menu</span>
+            </div>
+            <div class="header-left">
+                <span class="material-icons-outlined">search</span>
+            </div>
+            <div class="header-right">
+
+                <span class="material-icons-outlined">
+                    account_circle
+                </span>
+                <a href="">Profile</a>
+            </div>
+        </header>
+
+        <aside id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-icons-outlined">school</span> SCHOOL
+                </div>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+            </div>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item"><span class="material-icons-outlined">dashboard</span>Dashboard</li>
+                <li class="sidebar-list-item"><span class="material-icons-outlined">school</span><a href="teacher.html">Teacher</a></li>
+                <li class="sidebar-list-item"><span class="material-icons-outlined">school</span><a href="student.html">Student</a></li>
+                <li class="sidebar-list-item"><span class="material-icons-outlined">class</span><a href="class.html">Class</a></li>
+                <li class="sidebar-list-item"><span class="material-icons-outlined">library_add</span>Library</li>
+                <li class="sidebar-list-item"><span class="material-icons-outlined">category</span>Category</li>
+                <li class="sidebar-list-item"><span class="material-icons-outlined">logout</span>Logout</li>
+            </ul>
+        </aside>
+
+        <main class="main">
+            <div class="main-title">
+                <h2>Dashboard</h2>
+            </div>
+
+            <div class="main-cards">
+                <div class="card">
+                    <div class="card-liner">
+                        <h3>STUDENTS</h3>
+                        <span class="material-icons-outlined">group</span>
+                    </div>
+                    <h1>279</h1>
+                </div>
+
+                <div class="card">
+                    <div class="card-liner">
+                        <h3>TEACHERS</h3>
+                        <span class="material-icons-outlined">person</span>
+                    </div>
+                    <h1>35</h1>
+                </div>
+
+                <div class="card">
+                    <div class="card-liner">
+                        <h3>ADMINS</h3>
+                        <span class="material-icons-outlined">admin_panel_settings</span>
+                    </div>
+                    <h1>5</h1>
+                </div>
+            </div>
+
+            <div class="charts">
+                <div class="charts-card">
+                    <h2 class="chart-title">Top 5 Classes</h2>
+                    <div id="class-bar-chart"></div>
+                </div>
+
+                <div class="charts-card">
+                    <h2 class="chart-title">Top 5 Courses</h2>
+                    <div id="course-bar-chart"></div>
+                </div>
+            </div>
+
+            <div class="table">
+                <div class="table-title">CRM STUDENTS</div>
+                <table id="Student">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Details</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alfreds Futterkiste</td>
+                            <td>Ninth</td>
+                            <td><a href="student.html">Basic Info</a></td>
+                            <td><a href="#">Update</a></td>
+                            <td><a href="#">Delete</a></td>
+                        </tr>
+                        <tr>
+                            <td>Alfreds Futterkiste</td>
+                            <td>Ninth</td>
+                            <td><a href="student.html">Basic Info</a></td>
+                            <td><a href="#">Update</a></td>
+                            <td><a href="#">Delete</a></td>
+                        </tr>
+                        <!-- Add more rows here -->
+                    </tbody>
+                </table>
+
+                <div class="table">
+                    <div class="table-title">CRM TEACHERS</div>
+                    <table id="Student">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Class</th>
+                                <th>Details</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alfreds Futterkiste</td>
+                                <td>Ninth</td>
+                                <td><a href="teacher.html">Basic Info</a></td>
+                                <td><a href="#">Update</a></td>
+                                <td><a href="#">Delete</a></td>
+                            </tr>
+                            <tr>
+                                <td>Alfreds Futterkiste</td>
+                                <td>Ninth</td>
+                                <td><a href="teacher.html">Basic Info</a></td>
+                                <td><a href="#">Update</a></td>
+                                <td><a href="#">Delete</a></td>
+                            </tr>
+                            <!-- Add more rows here -->
+                        </tbody>
+                    </table>
+                </div>
+
+        </main>
+    </div>
+
+    <script>
+        let sidebarOpen = false;
+        const sidebar = document.getElementById("sidebar");
+
+        function openSidebar() {
+            if (!sidebarOpen) {
+                sidebar.classList.add("sidebar-responsive");
+                sidebarOpen = true;
+            }
+        }
+
+        function closeSidebar() {
+            if (sidebarOpen) {
+                sidebar.classList.remove("sidebar-responsive");
+                sidebarOpen = false;
+            }
+        }
+
+        // Chart 1: Top Classes
+        const classChartOptions = {
+            chart: {
+                type: 'bar',
+                height: 300
+            },
+            series: [{
+                name: 'Students',
+                data: [45, 60, 30, 80, 55]
+            }],
+            xaxis: {
+                categories: ['Class 10 A', 'Class B', 'Class C', 'Class D', 'Class E']
+            }
+        };
+
+        const classChart = new ApexCharts(document.querySelector("#class-bar-chart"), classChartOptions);
+        classChart.render();
+
+        // Chart 2: Top Courses
+        const courseChartOptions = {
+            chart: {
+                type: 'bar',
+                height: 300
+            },
+            series: [{
+                name: 'Enrollments',
+                data: [120, 90, 70, 100, 85]
+            }],
+            xaxis: {
+                categories: ['Math', 'Science', 'History', 'IT', 'Art']
+            }
+        };
+
+        const courseChart = new ApexCharts(document.querySelector("#course-bar-chart"), courseChartOptions);
+        courseChart.render();
+    </script>
+</body>
+
+</html>

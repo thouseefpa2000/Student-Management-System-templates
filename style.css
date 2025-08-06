@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #d4d8dd;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.box{
+    width: 800px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.login{
+    background: #5b7799;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 30px 0 0px 10px; 
+}
+.login:hover{
+    background: #1c2529;
+}
+.login h1{
+    margin: 10px;
+    text-transform: capitalize;
+    transition: 0.2s;
+    color: #d4d8dd;
+}
+.login h1:hover{
+    color: #a1d1b1;
+}
+.login input{
+    padding: 10px;
+    margin: 10px;
+    border-radius:20px ;
+    border: none;
+    outline: none;
+    text-transform: capitalize;
+}
+.login p{
+    margin: 10px;
+    color: #d4d8dd;
+}
+.login p a{
+    text-decoration: none;
+    color: #d4d8dd;
+}
+.btn button{
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.btn button:hover{
+    color: #d4d8dd;
+    background: #5b7799;
+}
+.log-img img{
+    border-radius: 0 0 30px ;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+    .box {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+
+    .log-img img {
+        width: 100%;
+        height: 200px;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .login {
+        border-radius: 20px 20px 0 0;
+        padding: 20px;
+    }
+}
+
+/* dashboard */
+.material-icons-outlined {
+    vertical-align: middle;
+    line-height: 1px;
+    font-size: 35px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 260px 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+        'sidebar header header header'
+        'sidebar main main main';
+    height: 100vh;
+}
+
+/* header */
+.header {
+    grid-area: header;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+/* sidebar */
+#sidebar {
+    grid-area: sidebar;
+    height: 100%;
+    background: #263843;
+    overflow-y: auto;
+    transition: all 0.5s;
+}
+
+.sidebar-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.sidebar-title > span {
+    display: none;
+    cursor: pointer;
+}
+
+.sidebar-brand {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    color: white;
+}
+.sidebar-list-item a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar-list-item {
+    padding: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar-list-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.sidebar-responsive {
+    display: inline !important;
+    position: absolute;
+    z-index: 12 !important;
+}
+
+/* main contents */
+.main {
+    grid-area: main;
+    overflow-y: auto;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.95);
+    background-color: #1c1c1c;
+}
+
+.main-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 25px;
+    border-radius: 5px;
+    color: white;
+}
+
+.card:first-child {
+    background-color: #2962ff;
+}
+
+.card:nth-child(2) {
+    background-color: #ff6d00;
+}
+
+.card:nth-child(3) {
+    background-color: #2e7d32;
+}
+.card:nth-child(4) {
+    background-color: #da9708;
+}
+
+.card-liner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-liner > .material-icons-outlined {
+    font-size: 45px;
+}
+.card a{
+    text-decoration: none;
+    color: #d4d8dd;
+}
+
+/* responsive layout */
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'header'
+            'main';
+    }
+
+    #sidebar {
+        display: none;
+    }
+
+    #sidebar.sidebar-responsive {
+        display: block;
+        width: 260px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 100;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .sidebar-title > span {
+        display: inline;
+        color: white;
+    }
+}
+.charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.charts-card {
+    background: #2c3e50;
+    padding: 20px;
+    border-radius: 8px;
+    color: rgb(44, 33, 33);
+}
+
+.chart-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Responsive Charts */
+@media screen and (max-width: 768px) {
+    .charts {
+        grid-template-columns: 1fr;
+    }
+}
+.table {
+    background: #2c3e50;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 40px;
+    color: white;
+    overflow-x: auto;
+}
+
+.table-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#Student {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#Student th, #Student td {
+    border: 1px solid #34495e;
+    padding: 12px 15px;
+    text-align: center;
+}
+
+#Student th {
+    background-color: #1abc9c;
+    color: white;
+}
+
+#Student tr:nth-child(even) {
+    background-color: #34495e;
+}
+
+#Student tr:hover {
+    background-color: #3d566e;
+}
+
+#Student a {
+    color: #00aced;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#Student a:hover {
+    text-decoration: underline;
+}
+
+/* class */
+.header-middle input{
+    border-radius: 30px;
+    padding: 10px;
+    outline: none;
+    border: none;
+}
+.header-middle a{
+    color: #1c1c1c;
+    text-decoration: none;
+}
+.header-right a{
+    color: #1c1c1c;
+    text-decoration: none;
+}
+/* student info page */
+.student-info{
+    width: 100%;
+    height: 100vh;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.student-info h1{
+    margin: 20px;
+    font-size: 30px;
+    font-weight: 500;
+}
+.student-card{
+    padding: 20px;
+    margin: 10px;
+    border:1px #5b7799 solid;
+    border-radius: 20px;
+    text-align: center;
+}
+.student-card:hover{
+    padding: 30px;
+    margin: 20px;
+    border: 1px solid #1abc9c;
+    background: #fff;
+    color: #1c1c1c;
+}
+.img{
+    text-align: center;
+}
+.img img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius:40%;
+    transform: translateY(-50% );
+}
+.student-name{
+    margin: 10px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.student-details{
+    font-weight: 400;
+    font-size: 18px;
+
+}
+.student-details h4,h5{
+    margin: 10px;
+}
+.mark-list table{
+    border-collapse: collapse;
+    margin-top:20px ;
+    width: 80%;
+}
+.mark-list th, .mark-list td {
+    border: 1px solid #5b7799;
+    padding: 10px;
+    text-align: center;
+}
+.mark-list th,a{
+    text-decoration: none;
+    color: #fff;
+}
+.mark-list th {
+    background-color: #5b7799;
+    color: white;
+}
+
+.mark-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    background: #5b7799;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    background: #1c2529;
+}
+
+@media screen and (max-width: 768px){
+    .student-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 350px;
+        background: #f8f9fa;
+        transition: all 0.3s ease;
+    }
+}
+
+/* assignment */
+.asi-title{
+    text-align: center;
+    margin: 30px;
+}
+.assig{
+    margin-left: 220px;
+    
+}
+/* Status colors */
+.status-open {
+    color: green;
+    font-weight: bold;
+}
+.status-closed {
+    color: red;
+    font-weight: bold;
+}
+.status-overdue {
+    color: orange;
+    font-weight: bold;
+}
+
+
+.assig-title {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-btn {
+    background: #5b7799;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+.add-btn:hover {
+    background: #1c2529;
+}
+
